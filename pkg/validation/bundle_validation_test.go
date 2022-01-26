@@ -56,7 +56,7 @@ func Test_Test_checkMaxKubeVersionAnnotation(t *testing.T) {
 			name: "should fail when has deprecated apis and kubeMaxVersion annotation is not set",
 			wantError:   true,
 			errStrings: []string{
-				"Error: Value : (memcached-operator.v0.0.1) operators.operatorframework.io/maxKubeVersion metadata.annotation is not infomed. This distributions still using the removed APIs then, you **MUST** ensure that its CSV has the informative metadata annotation `operators.operatorframework.io/maxKubeVersion`. More info: this bundle is using APIs which were deprecated and removed in v1.22. More info: https://kubernetes.io/docs/reference/using-api/deprecation-guide/#v1-22. Migrate the API(s) for CRD: ([\"memcacheds.cache.example.com\"])",
+				"Error: Value : (memcached-operator.v0.0.1) operatorhub.io/ui-metadata-max-k8s-version metadata.annotation is not infomed. This distributions still using the removed APIs then, you **MUST** ensure that its CSV has the informative metadata annotation `operatorhub.io/ui-metadata-max-k8s-version`. More info: this bundle is using APIs which were deprecated and removed in v1.22. More info: https://kubernetes.io/docs/reference/using-api/deprecation-guide/#v1-22. Migrate the API(s) for CRD: ([\"memcacheds.cache.example.com\"])",
 			},
 			args: args{
 				bundleDir: "./testdata/bundle_v1beta1",
@@ -66,7 +66,7 @@ func Test_Test_checkMaxKubeVersionAnnotation(t *testing.T) {
 			name: "should fail when has deprecated apis and kubeMaxVersion set is > 1.21",
 			wantError:   true,
 			errStrings: []string{
-				"Error: Value : (memcached-operator.v0.0.1) invalid value for operators.operatorframework.io/maxKubeVersion. The K8s version value 1.22.0 is >= of 1.22.0. Note that this bundle is using APIs which were deprecated and removed in v1.22. More info: https://kubernetes.io/docs/reference/using-api/deprecation-guide/#v1-22. Migrate the API(s) for CRD: ([\"memcacheds.cache.example.com\"])",
+				"Error: Value : (memcached-operator.v0.0.1) invalid value for operatorhub.io/ui-metadata-max-k8s-version. The K8s version value 1.22.0 is >= of 1.22.0. Note that this bundle is using APIs which were deprecated and removed in v1.22. More info: https://kubernetes.io/docs/reference/using-api/deprecation-guide/#v1-22. Migrate the API(s) for CRD: ([\"memcacheds.cache.example.com\"])",
 			},
 			args: args{
 				bundleDir: "./testdata/bundle_v1beta1",
@@ -79,7 +79,7 @@ func Test_Test_checkMaxKubeVersionAnnotation(t *testing.T) {
 			name: "should fail when kubeMaxVersion is invalid",
 			wantError:   true,
 			errStrings: []string{
-				"Error: Value : (memcached-operator.v0.0.1) operators.operatorframework.io/maxKubeVersion metadata.annotation value (invalid) is invalid. Error: Invalid character(s) found in major number \"invalid\" ",
+				"Error: Value : (memcached-operator.v0.0.1) operatorhub.io/ui-metadata-max-k8s-version metadata.annotation value (invalid) is invalid. Error: Invalid character(s) found in major number \"invalid\" ",
 			},
 			args: args{
 				bundleDir: "./testdata/bundle_v1",

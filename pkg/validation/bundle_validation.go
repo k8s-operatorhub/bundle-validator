@@ -31,11 +31,11 @@ import (
 // this validator and move it out of this project. Following its current checks:
 //
 // - Ensure that when found the usage of the removed APIs on 1.22/OCP 4.9 the CSV has the annotation
-// operators.operatorframework.io/maxKubeVersion with a value < 1.22.
+// operatorhub.io/ui-metadata-max-k8s-version with a value < 1.22.
 var K8sCommunityBundleValidator interfaces.Validator = interfaces.ValidatorFunc(k8sCommunityBundleValidator)
 
 // KubeMaxAnnotation define the annotation that will be checked
-const KubeMaxAnnotation = "operators.operatorframework.io/maxKubeVersion"
+const KubeMaxAnnotation = "operatorhub.io/ui-metadata-max-k8s-version"
 
 // K8sVerV1betav1Unsupported version where the apis v1betav1 is no longer supported
 const K8sVerV1betav1Unsupported = "1.22.0"
